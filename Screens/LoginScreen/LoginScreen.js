@@ -22,8 +22,10 @@ export const LoginScreen = () => {
     setShowPassword(!showPassword);
   };
 
-  const onLogin = () => {
-    Alert.alert('Credentials', ` ${password}`);
+  const handleSubmit = () => {
+    if ((mail, password)) {
+      console.log({ mail, password });
+    }
   };
 
   return (
@@ -61,7 +63,7 @@ export const LoginScreen = () => {
                   </View>
                 </View>
 
-                <TouchableOpacity style={styles.button} onPress={onLogin}>
+                <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                   <Text style={styles.buttonTitle}>Увійти</Text>
                 </TouchableOpacity>
               </KeyboardAvoidingView>

@@ -22,8 +22,10 @@ const RegistrationScreen = () => {
   const [password, setPassword] = useState('');
   const [mail, setMail] = useState('');
 
-  const onLogin = () => {
-    Alert.alert('Credentials', `${name} + ${password}`);
+  const handleSubmit = () => {
+    if ((name, mail, password)) {
+      console.log({ name, mail, password });
+    }
   };
 
   const toggleShowPassword = () => {
@@ -78,7 +80,7 @@ const RegistrationScreen = () => {
                     </Text>
                   </View>
                 </View>
-                <TouchableOpacity style={styles.button} onPress={onLogin}>
+                <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                   <Text style={styles.buttonTitle}>Зареєструватися</Text>
                 </TouchableOpacity>
               </KeyboardAvoidingView>
