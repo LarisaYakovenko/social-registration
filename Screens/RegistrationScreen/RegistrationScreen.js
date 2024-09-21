@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   TextInput,
   Platform,
+  Alert,
 } from 'react-native';
 
 import React, { useState } from 'react';
@@ -20,6 +21,10 @@ const RegistrationScreen = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [mail, setMail] = useState('');
+
+  const onLogin = () => {
+    Alert.alert('Credentials', `${name} + ${password}`);
+  };
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -45,7 +50,7 @@ const RegistrationScreen = () => {
             <Text style={styles.text}>Реєстрація</Text>
             <View style={styles.containerInput}>
               <KeyboardAvoidingView
-                behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
               >
                 <TextInput
                   placeholder="Логін"
@@ -73,7 +78,7 @@ const RegistrationScreen = () => {
                     </Text>
                   </View>
                 </View>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={onLogin}>
                   <Text style={styles.buttonTitle}>Зареєструватися</Text>
                 </TouchableOpacity>
               </KeyboardAvoidingView>

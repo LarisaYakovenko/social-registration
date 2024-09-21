@@ -1,6 +1,7 @@
 import { useFonts } from 'expo-font';
 import React from 'react';
 import RegistrationScreen from './Screens/RegistrationScreen/RegistrationScreen';
+import LoginScreen from './Screens/LoginScreen/LoginScreen';
 
 // import { View } from 'react-native';
 
@@ -15,4 +16,5 @@ export default function App() {
     return null;
   }
   return <RegistrationScreen />;
+  // <LoginScreen />;
 }
