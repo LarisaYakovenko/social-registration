@@ -1,9 +1,8 @@
 import { useFonts } from 'expo-font';
 import React from 'react';
-import RegistrationScreen from './Screens/RegistrationScreen/RegistrationScreen';
-import LoginScreen from './Screens/LoginScreen/LoginScreen';
+import 'react-native-gesture-handler';
 
-// import { View } from 'react-native';
+import AppNavigation from './components/AppNavigation';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,6 +14,5 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-  return <RegistrationScreen />;
-  // <LoginScreen />;
+  return <AppNavigation />;
 }

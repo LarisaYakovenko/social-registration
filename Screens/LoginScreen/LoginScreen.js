@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  Alert,
   TouchableNativeFeedback,
   ImageBackground,
   KeyboardAvoidingView,
@@ -13,20 +12,24 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
+
 export const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
   const [mail, setMail] = useState('');
 
+  const navigation = useNavigation();
+
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = () => {
-    if ((mail, password)) {
-      console.log({ mail, password });
-    }
-  };
+  // const handleSubmit = () => {
+  //   if ((mail, password)) {
+  //     console.log({ mail, password });
+  //   }
+  // };
 
   return (
     <View style={styles.container}>
@@ -63,13 +66,20 @@ export const LoginScreen = () => {
                   </View>
                 </View>
 
-                <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                <TouchableOpacity
+                  style={styles.button}
+                  // onPress={handleSubmit}
+                  onPress={() => navigation.navigate('Home')}
+                >
                   <Text style={styles.buttonTitle}>Увійти</Text>
                 </TouchableOpacity>
               </KeyboardAvoidingView>
               <View style={styles.stringInText}>
                 <Text>Немає акаунту?</Text>
-                <Text style={{ textDecorationLine: 'underline' }}>
+                <Text
+                  style={{ textDecorationLine: 'underline' }}
+                  onPress={() => navigation.navigate('RegistrationScreen')}
+                >
                   {'  '}
                   Зареєструватися
                 </Text>
@@ -85,6 +95,10 @@ export const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'flex-end',
   },
   action: {
     flexDirection: 'row',
@@ -108,7 +122,6 @@ const styles = StyleSheet.create({
     height: 489,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    top: 280,
   },
   text: {
     color: '#212121',

@@ -9,18 +9,20 @@ import {
   KeyboardAvoidingView,
   TextInput,
   Platform,
-  Alert,
 } from 'react-native';
 
 import React, { useState } from 'react';
 
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const RegistrationScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [mail, setMail] = useState('');
+
+  const navigation = useNavigation();
 
   const handleSubmit = () => {
     if ((name, mail, password)) {
@@ -86,7 +88,10 @@ const RegistrationScreen = () => {
               </KeyboardAvoidingView>
               <View style={styles.stringInText}>
                 <Text>Немає акаунту?</Text>
-                <Text style={{ textDecorationLine: 'underline' }}>
+                <Text
+                  style={{ textDecorationLine: 'underline' }}
+                  onPress={() => navigation.navigate('LoginScreen')}
+                >
                   {'  '}
                   Увійти
                 </Text>
@@ -104,7 +109,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
   action: {
     flexDirection: 'row',
@@ -118,7 +123,6 @@ const styles = StyleSheet.create({
     height: 549,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    top: 200,
   },
   ickonAdd: {
     left: 108,
